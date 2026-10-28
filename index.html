@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mizaaj Restaurant Karachi — Fine Dining, Redesigned (Concept)</title>
-<meta name="description" content="Redesign concept for Mizaaj Restaurant, Karachi — fine-dining Pakistani, BBQ, Continental, Chinese and steaks on Shahrah-e-Faisal, SMCHS. Interactive glassmorphic one-page experience with the real menu.">
+<meta name="description" content="Redesign concept for Mizaaj Restaurant, Karachi — fine-dining Pakistani, BBQ, Continental, Chinese and steaks on Shahrah-e-Faisal, SMCHS. Interactive glassmorphic experience with the real menu.">
 <link rel="icon" href="https://mizaajrestaurant.com/wp-content/uploads/2024/07/mizaajfavicon.png">
 <meta property="og:title" content="Mizaaj Restaurant — Turn Your Evening Into an Experience">
 <meta property="og:type" content="website">
@@ -175,6 +175,11 @@ header.nav.scrolled .bar{background:rgba(255,255,255,.82)}
   transition:color .2s ease, background .2s ease;
 }
 .nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.65)}
+.nav-links a.active{
+  color:var(--ink);
+  background:rgba(255,255,255,.75);
+  box-shadow:inset 0 0 0 1px rgba(177,138,79,.4);
+}
 .nav-cta{display:flex;align-items:center;gap:.5rem}
 .nav-burger{display:none;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.6);align-items:center;justify-content:center}
 .nav-burger svg{width:20px;height:20px;stroke:var(--ink)}
@@ -192,7 +197,59 @@ header.nav.scrolled .bar{background:rgba(255,255,255,.82)}
 }
 .mobile-menu a{display:block;padding:.7rem 1rem;border-radius:12px;text-decoration:none;font-weight:500;color:var(--ink)}
 .mobile-menu a:hover{background:rgba(255,255,255,.7)}
+.mobile-menu a.active{background:rgba(255,255,255,.7);color:var(--gold-deep)}
 header.nav.open .mobile-menu{display:block}
+
+.band{padding:90px 0;color:#f8f1e0;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;z-index:-2}
+.band-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.band-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,22,12,.45),rgba(30,22,12,.62))}
+.band .kicker{color:#e8c893}
+.band .kicker::before{background:#e8c893}
+.band .h2{color:#fffdf4}
+.band .lede{color:rgba(255,251,240,.85)}
+
+.reserve-card{
+  padding:3rem 3.2rem;
+  text-align:center;
+  max-width:760px;
+  margin-inline:auto;
+}
+.reserve-card .h2{margin-bottom:.4rem}
+.reserve-card .lede{margin:0 auto 1.8rem}
+.reserve-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-bottom:1.4rem}
+.reserve-note{font-size:.82rem;color:var(--ink-soft)}
+
+.stats{padding:8px 0 30px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{padding:1.4rem 1.2rem;text-align:center}
+.stat b{
+  display:block;
+  font-family:var(--disp);
+  font-weight:700;
+  font-size:2rem;
+  color:var(--gold-deep);
+  line-height:1.1;
+}
+.stat span{font-size:.82rem;color:var(--ink-soft);letter-spacing:.04em}
+
+footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;padding-bottom:2.2rem;border-bottom:1px solid rgba(248,241,224,.14)}
+.foot-mark{font-family:var(--disp);font-size:2rem;font-weight:600;color:#e9d3a2;line-height:1.1}
+.foot-mark i{font-style:normal;color:#c96b45}
+.foot-col p{font-size:.9rem;color:rgba(236,228,208,.75);max-width:340px;margin-top:.6rem}
+.foot-col h4{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#e9d3a2;margin-bottom:1rem}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:.5rem}
+.foot-col a{font-size:.92rem;color:rgba(236,228,208,.78);text-decoration:none}
+.foot-col a:hover{color:#fffdf4}
+.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.78rem;color:rgba(236,228,208,.55)}
+.foot-base a{color:rgba(236,228,208,.75);text-decoration:none}
+.foot-base a:hover{color:#fffdf4}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 .hero{padding:150px 0 70px}
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
@@ -260,63 +317,8 @@ header.nav.open .mobile-menu{display:block}
   color:var(--gold-deep);
 }
 
-.stats{padding:8px 0 30px}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.stat{padding:1.4rem 1.2rem;text-align:center}
-.stat b{
-  display:block;
-  font-family:var(--disp);
-  font-weight:700;
-  font-size:2rem;
-  color:var(--gold-deep);
-  line-height:1.1;
-}
-.stat span{font-size:.82rem;color:var(--ink-soft);letter-spacing:.04em}
-
-.menu-section{padding:80px 0 40px}
-.menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:1.8rem}
-.menu-tabs{
-  display:flex;
-  gap:.5rem;
-  overflow-x:auto;
-  padding:6px 4px 14px;
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-}
-.menu-tabs::-webkit-scrollbar{display:none}
-.tab{
-  flex:none;
-  padding:.6rem 1.25rem;
-  border-radius:999px;
-  font-weight:500;
-  font-size:.9rem;
-  color:var(--ink-soft);
-  background:rgba(255,255,255,.5);
-  border:1px solid rgba(255,255,255,.8);
-  transition:all .25s ease;
-  white-space:nowrap;
-}
-.tab:hover{color:var(--ink)}
-.tab.active{
-  background:var(--dark);
-  color:#f8f1e0;
-  border-color:var(--dark);
-  box-shadow:0 10px 22px -10px rgba(35,48,41,.6);
-}
-.menu-panel{padding:1.6rem 1.8rem 1.7rem}
-.dish-grid{display:grid;grid-template-columns:1fr 1fr;gap:.35rem 3rem}
-.dish{display:flex;flex-direction:column;padding:.75rem 0;border-bottom:1px dashed rgba(177,138,79,.3)}
-.dish:last-child,.dish:nth-last-child(2):nth-child(odd){border-bottom:0}
-.dish-top{display:flex;align-items:baseline;gap:.75rem}
-.dish-top b{font-weight:600;font-size:.98rem}
-.dish-leader{flex:1;border-bottom:1px dotted rgba(177,138,79,.55);transform:translateY(-4px)}
-.dish-price{font-weight:600;color:var(--gold-deep);white-space:nowrap;font-size:.95rem}
-.dish-price small{font-weight:500;color:var(--ink-faint);font-size:.75rem;margin-right:.4rem}
-.dish p{font-size:.84rem;color:var(--ink-soft);margin-top:.15rem;max-width:92%}
-.menu-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
-.menu-foot span{font-size:.82rem;color:var(--ink-faint)}
-
 .signatures{padding:60px 0}
+.sig-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .sig-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:1.1rem;margin-top:1.8rem}
 .sig{
   position:relative;
@@ -354,7 +356,7 @@ header.nav.open .mobile-menu{display:block}
 }
 
 .ambiance{padding:70px 0}
-.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:1.1rem;margin-top:1.8rem}
+.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:1.1rem}
 .amb{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.85);box-shadow:0 22px 42px -24px rgba(56,40,14,.5)}
 .amb.tall{grid-row:span 2}
 .amb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
@@ -377,41 +379,31 @@ header.nav.open .mobile-menu{display:block}
 .amb-panel p{font-size:.9rem;color:var(--ink-soft)}
 .amb-panel .kicker{margin-bottom:.2rem}
 
-.band{padding:90px 0;color:#f8f1e0;overflow:hidden}
-.band::before{content:"";position:absolute;inset:0;z-index:-2}
-.band-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
-.band-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,22,12,.45),rgba(30,22,12,.62))}
-.band .kicker{color:#e8c893}
-.band .kicker::before{background:#e8c893}
-.band .h2{color:#fffdf4}
-.band .lede{color:rgba(255,251,240,.85)}
-
-.events-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2rem}
-.event{
-  padding:1.5rem 1.35rem;
-  border-radius:22px;
-  background:rgba(255,255,255,.6);
-  -webkit-backdrop-filter:blur(18px) saturate(1.6);
-  backdrop-filter:blur(18px) saturate(1.6);
-  border:1px solid rgba(255,255,255,.85);
-  box-shadow:0 22px 40px -22px rgba(20,14,4,.5);
-  color:var(--ink);
+.explore{padding:16px 0 26px}
+.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.x-card{
+  display:block;
+  padding:1.7rem 1.6rem;
+  text-decoration:none;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
-.event-ico{
+.x-card:hover{transform:translateY(-4px)}
+.x-ico{
   width:46px;height:46px;
   border-radius:15px;
   background:linear-gradient(135deg,#c9a35f,#a87f3f);
   display:flex;align-items:center;justify-content:center;
   margin-bottom:1rem;
 }
-.event-ico svg{width:20px;height:20px;stroke:#fffdf4}
-.event b{display:block;font-weight:600;font-size:1.02rem;margin-bottom:.3rem}
-.event p{font-size:.86rem;color:var(--ink-soft)}
-.event .mini{display:inline-block;margin-top:.9rem;font-size:.8rem;font-weight:600;color:var(--gold-deep);text-decoration:none}
-.event .mini:hover{text-decoration:underline}
+.x-ico svg{width:20px;height:20px;stroke:#fffdf4}
+.x-card b{display:block;font-family:var(--disp);font-size:1.4rem;font-weight:600;margin-bottom:.35rem;color:var(--ink)}
+.x-card p{font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem}
+.x-card .mini{display:inline-flex;align-items:center;gap:.4rem;font-size:.86rem;font-weight:600;color:var(--gold-deep)}
+.x-card .mini svg{width:15px;height:15px;transition:transform .25s ease}
+.x-card:hover .mini svg{transform:translateX(3px)}
 
-.reviews{padding:84px 0}
-.rev-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1.1rem;margin-top:1.8rem}
+.reviews{padding:64px 0 84px}
+.rev-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.1rem}
 .rev{padding:1.6rem 1.5rem}
 .rev-stars{display:flex;gap:2px;margin-bottom:.8rem}
 .rev-stars svg{width:15px;height:15px;fill:var(--gold);stroke:var(--gold)}
@@ -430,71 +422,14 @@ header.nav.open .mobile-menu{display:block}
 .rev-score .sub{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--ink-soft)}
 .rev-score .sub svg{width:15px;height:15px;fill:var(--gold);stroke:var(--gold)}
 
-.reserve{padding:96px 0}
-.reserve-card{
-  padding:3rem 3.2rem;
-  text-align:center;
-  max-width:760px;
-  margin-inline:auto;
-}
-.reserve-card .h2{margin-bottom:.4rem}
-.reserve-card .lede{margin:0 auto 1.8rem}
-.reserve-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-bottom:1.4rem}
-.reserve-note{font-size:.82rem;color:var(--ink-soft)}
-
-.visit{padding:70px 0 90px}
-.visit-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.2rem;margin-top:1.8rem}
-.visit-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-.vcard{padding:1.45rem 1.4rem}
-.vcard-ico{width:42px;height:42px;border-radius:13px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;margin-bottom:.85rem}
-.vcard-ico svg{width:18px;height:18px;stroke:var(--gold-deep)}
-.vcard b{display:block;font-size:.95rem;font-weight:600;margin-bottom:.25rem}
-.vcard p{font-size:.88rem;color:var(--ink-soft)}
-.vcard a{color:var(--gold-deep);font-weight:500;text-decoration:none}
-.vcard a:hover{text-decoration:underline}
-.map-wrap{border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow);min-height:420px;position:relative}
-.map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.9)}
-.visit-social{display:flex;gap:.7rem;margin-top:1.1rem}
-.soc{
-  width:44px;height:44px;border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(255,255,255,.6);
-  border:1px solid rgba(255,255,255,.85);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  transition:transform .25s ease, background .25s ease;
-}
-.soc svg{width:18px;height:18px;stroke:var(--ink)}
-.soc:hover{transform:translateY(-2px);background:#fffdf4}
-
-footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
-.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;padding-bottom:2.2rem;border-bottom:1px solid rgba(248,241,224,.14)}
-.foot-mark{font-family:var(--disp);font-size:2rem;font-weight:600;color:#e9d3a2;line-height:1.1}
-.foot-mark i{font-style:normal;color:#c96b45}
-.foot-col p{font-size:.9rem;color:rgba(236,228,208,.75);max-width:340px;margin-top:.6rem}
-.foot-col h4{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#e9d3a2;margin-bottom:1rem}
-.foot-col ul{list-style:none}
-.foot-col li{margin-bottom:.5rem}
-.foot-col a{font-size:.92rem;color:rgba(236,228,208,.78);text-decoration:none}
-.foot-col a:hover{color:#fffdf4}
-.foot-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.78rem;color:rgba(236,228,208,.55)}
-.foot-base a{color:rgba(236,228,208,.75);text-decoration:none}
-.foot-base a:hover{color:#fffdf4}
-
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-
 @media (max-width:1020px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .hero-visual{order:-1}
   .float-card{left:14px;bottom:-24px}
   .stats-row{grid-template-columns:repeat(2,1fr)}
-  .events-grid{grid-template-columns:repeat(2,1fr)}
   .rev-grid{grid-template-columns:1fr 1fr}
-  .rev-score{grid-column:span 2;flex-direction:row;align-items:center;gap:1.2rem}
-  .visit-grid{grid-template-columns:1fr}
-  .map-wrap{min-height:340px}
+  .rev-score{flex-direction:row;align-items:center;gap:1.2rem}
+  .explore-grid{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   .nav-links,.nav-cta .btn span.txt{display:none}
@@ -503,17 +438,12 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
   .hero{padding:120px 0 60px}
   .hero-photo img{aspect-ratio:4/3}
   .float-tag{right:10px}
-  .dish-grid{grid-template-columns:1fr}
-  .dish:nth-last-child(2):nth-child(odd){border-bottom:1px dashed rgba(177,138,79,.3)}
   .sig-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}
   .sig.wide{grid-column:span 2;grid-row:span 1}
   .amb-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
   .amb-panel{grid-column:span 2;grid-row:span 1;justify-content:flex-end}
-  .events-grid{grid-template-columns:1fr}
   .rev-grid{grid-template-columns:1fr}
-  .rev-score{grid-column:auto}
-  .visit-cards{grid-template-columns:1fr}
-  .menu-panel{padding:1.3rem 1.2rem}
+  .rev-score{flex-direction:column;align-items:flex-start}
   .foot-grid{grid-template-columns:1fr;gap:1.8rem}
   .reserve-card{padding:2.2rem 1.5rem}
 }
@@ -523,17 +453,14 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
 
 <header class="nav" id="nav">
   <div class="bar">
-    <a class="brand" href="#top" aria-label="Mizaaj Restaurant home">
+    <a class="brand" href="index.html" aria-label="Mizaaj Restaurant home">
       <img src="https://mizaajrestaurant.com/wp-content/uploads/2025/07/logo.webp" alt="Mizaaj Restaurant logo" referrerpolicy="no-referrer">
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#signatures">Signatures</a></li>
-        <li><a href="#ambiance">Ambiance</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#visit">Visit</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="visit.html">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -547,16 +474,14 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#menu">Menu</a>
-    <a href="#signatures">Signatures</a>
-    <a href="#ambiance">Ambiance</a>
-    <a href="#events">Events</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#visit">Visit</a>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="events.html">Events</a>
+    <a href="visit.html">Contact</a>
   </div>
 </header>
 
-<main id="top">
+<main>
 
   <section class="hero">
     <div class="container hero-grid">
@@ -565,7 +490,7 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
         <h1>Turn your evening into <em>an experience.</em></h1>
         <p class="lede">Mizaaj — the Urdu word for <strong>mood</strong> — is a multi-cuisine fine-dining courtyard on Shahrah-e-Faisal, where golden chandeliers, an open-air mocktail bar and plates from four kitchens set your mizaaj for the night.</p>
         <div class="hero-actions">
-          <a class="btn btn-dark" href="#menu">Explore the Menu
+          <a class="btn btn-dark" href="menu.html">Explore the Menu
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a class="btn btn-ghost" href="https://wa.link/hna3yi" target="_blank" rel="noopener">Reserve via WhatsApp</a>
@@ -609,34 +534,16 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
     </div>
   </section>
 
-  <section class="menu-section" id="menu">
-    <div class="container">
-      <div class="menu-head">
-        <div class="reveal">
-          <span class="kicker">The Menu</span>
-          <h2 class="h2">Explore our <em>ultimate cuisine</em></h2>
-          <p class="lede">Four kitchens, one courtyard — real dishes, real prices. Tap a category to browse what the chefs are firing tonight.</p>
-        </div>
-        <a class="btn btn-ghost reveal d1" href="https://mizaajrestaurant.com/menu/" target="_blank" rel="noopener">See the full menu book
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </div>
-      <div class="menu-tabs reveal" id="menuTabs" role="tablist" aria-label="Menu categories"></div>
-      <div class="menu-panel glass reveal d1">
-        <div class="dish-grid" id="dishGrid"></div>
-        <div class="menu-foot">
-          <span>All prices in PKR, exclusive of SST</span>
-          <a class="btn btn-dark" href="https://wa.link/hna3yi" target="_blank" rel="noopener">Reserve a table for these</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="signatures" id="signatures">
     <div class="container">
-      <div class="reveal">
-        <span class="kicker">Chef's Signatures</span>
-        <h2 class="h2">Plates we're <em>famous for</em></h2>
+      <div class="sig-head">
+        <div class="reveal">
+          <span class="kicker">Chef's Signatures</span>
+          <h2 class="h2">Plates we're <em>famous for</em></h2>
+        </div>
+        <a class="btn btn-ghost reveal d1" href="menu.html">See the full menu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
       <div class="sig-grid">
         <div class="sig wide reveal">
@@ -688,52 +595,37 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
           <img src="https://mizaajrestaurant.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-07-at-8.31.15-PM-1-scaled.jpeg" alt="Glowing circular open-air mocktail bar crowned by a lit umbrella canopy at Mizaaj" loading="lazy" referrerpolicy="no-referrer">
           <span class="amb-tag">Open-air mocktail bar</span>
         </div>
-        <div class="amb reveal d4">
-          <img src="https://mizaajrestaurant.com/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-07-at-8.31.28-PM-1-1-scaled.jpeg" alt="Whimsical dining room with giraffe sculpture and warm tassel chandeliers at Mizaaj" loading="lazy" referrerpolicy="no-referrer">
-          <span class="amb-tag">The giraffe room</span>
-        </div>
-        <div class="amb reveal d4">
-          <img src="https://mizaajrestaurant.com/wp-content/uploads/2026/09/mizaaj-entrance-sign.webp" alt="Mizaaj courtyard entrance with a fairy-lit tree and glowing sign at night" loading="lazy" referrerpolicy="no-referrer">
-          <span class="amb-tag">Fairy-lit courtyard</span>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="band" id="events">
-    <img class="band-img" src="https://mizaajrestaurant.com/wp-content/uploads/2025/09/WAQ_2967.webp" alt="" loading="lazy" referrerpolicy="no-referrer" aria-hidden="true">
-    <div class="band-veil"></div>
+  <section class="explore">
     <div class="container">
-      <div class="reveal">
-        <span class="kicker">Celebrations</span>
-        <h2 class="h2">Your occasion, <em>our setting</em></h2>
-        <p class="lede">From bespoke birthday themes to boardroom dinners, Mizaaj sets the room — and the mood — for it.</p>
-      </div>
-      <div class="events-grid">
-        <div class="event reveal">
-          <span class="event-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.4L20 8l-4 3.9.9 5.6-4.9-2.7-4.9 2.7.9-5.6L4 8l5.6-.6z"/></svg></span>
-          <b>Birthday Evenings</b>
-          <p>500+ custom themes, décor and a room that celebrates with you.</p>
-          <a class="mini" href="https://mizaajrestaurant.com/birthday-restaurant-in-karachi/" target="_blank" rel="noopener">See birthday events</a>
-        </div>
-        <div class="event reveal d1">
-          <span class="event-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
-          <b>Corporate Events</b>
-          <p>Business lunches, launches and executive dinners with privacy on demand.</p>
-          <a class="mini" href="https://mizaajrestaurant.com/corporate-events-in-karachi/" target="_blank" rel="noopener">Plan a corporate dinner</a>
-        </div>
-        <div class="event reveal d2">
-          <span class="event-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
-          <b>Nikkah &amp; Private</b>
-          <p>Intimate ceremonies and family gatherings in a serene, family-friendly space.</p>
-          <a class="mini" href="https://wa.link/hna3yi" target="_blank" rel="noopener">Enquire on WhatsApp</a>
-        </div>
-        <div class="event reveal d3">
-          <span class="event-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-          <b>Iftar Buffet</b>
-          <p>Ramadan evenings with a wide spread of Iftar favourites, served with care.</p>
-          <a class="mini" href="https://www.instagram.com/mizaajrestaurantofficial/" target="_blank" rel="noopener">This season on Instagram</a>
-        </div>
+      <div class="explore-grid">
+        <a class="x-card glass reveal" href="menu.html">
+          <span class="x-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+          <b>The Full Menu</b>
+          <p>Twelve categories, ~120 real dishes with actual prices — browse by tab, from BBQ platters to the mocktail bar.</p>
+          <span class="mini">Browse the menu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="x-card glass reveal d1" href="events.html">
+          <span class="x-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.4L20 8l-4 3.9.9 5.6-4.9-2.7-4.9 2.7.9-5.6L4 8l5.6-.6z"/></svg></span>
+          <b>Celebrations</b>
+          <p>500+ bespoke birthday themes, corporate dinners, nikkah ceremonies and Ramadan iftar spreads.</p>
+          <span class="mini">Plan an occasion
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="x-card glass reveal d2" href="visit.html">
+          <span class="x-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <b>Find Us &amp; Reserve</b>
+          <p>Shahrah-e-Faisal, SMCHS. Hours, map, free valet parking and one-minute WhatsApp reservations.</p>
+          <span class="mini">Plan your visit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
       </div>
     </div>
   </section>
@@ -772,25 +664,11 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
             <span><b>Black Angele Gaming</b><span>Posted on Google</span></span>
           </div>
         </div>
-        <div class="rev glass reveal d2">
-          <div class="rev-stars" aria-label="5 stars">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-          </div>
-          <q>Well done team Mizaaj.</q>
-          <div class="rev-meta">
-            <span class="rev-ava">M</span>
-            <span><b>Muhammad Nadeem</b><span>Posted on Google</span></span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <section class="band reserve">
+  <section class="band">
     <img class="band-img" src="https://mizaajrestaurant.com/wp-content/uploads/2026/09/mizaaj-entrance-sign.webp" alt="" loading="lazy" referrerpolicy="no-referrer" aria-hidden="true">
     <div class="band-veil"></div>
     <div class="container">
@@ -813,55 +691,6 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
     </div>
   </section>
 
-  <section class="visit" id="visit">
-    <div class="container">
-      <div class="reveal">
-        <span class="kicker">Find Us</span>
-        <h2 class="h2">Shahrah-e-Faisal, <em>in the heart of Karachi</em></h2>
-      </div>
-      <div class="visit-grid">
-        <div class="visit-cards">
-          <div class="vcard glass reveal">
-            <span class="vcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <b>Address</b>
-            <p>Plot 6-A, Main Shahrah-e-Faisal Rd,<br>SMCHS, Karachi, Pakistan</p>
-            <a href="https://www.google.com/maps?q=Mizaaj+Restaurant+SMCHS+Karachi" target="_blank" rel="noopener">Open in Google Maps</a>
-          </div>
-          <div class="vcard glass reveal d1">
-            <span class="vcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-            <b>Hours</b>
-            <p>Monday – Sunday<br>Lunch 1:00 – 5:00 PM<br>Dinner 6:00 PM – 12:30 AM</p>
-          </div>
-          <div class="vcard glass reveal d2">
-            <span class="vcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-            <b>Call or WhatsApp</b>
-            <p><a href="tel:+923019025777">0301-9025777</a><br><a href="https://wa.link/hna3yi" target="_blank" rel="noopener">Chat to reserve instantly</a></p>
-          </div>
-          <div class="vcard glass reveal d3">
-            <span class="vcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
-            <b>Email</b>
-            <p><a href="mailto:mizaajrestaurant@gmail.com">mizaajrestaurant@gmail.com</a></p>
-            <p style="margin-top:.4rem">Bank card discounts available on dine-in</p>
-          </div>
-          <div class="visit-social reveal d3" style="grid-column:1/-1">
-            <a class="soc" href="https://www.facebook.com/mizaajrestaurantofficial/" target="_blank" rel="noopener" aria-label="Mizaaj on Facebook">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a class="soc" href="https://www.instagram.com/mizaajrestaurantofficial/" target="_blank" rel="noopener" aria-label="Mizaaj on Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
-            </a>
-            <a class="soc" href="https://wa.link/hna3yi" target="_blank" rel="noopener" aria-label="Mizaaj on WhatsApp">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="map-wrap reveal d2">
-          <iframe src="https://www.google.com/maps?q=Mizaaj+Restaurant,+Plot+6-A,+Main+Shahrah-e-Faisal+Road,+SMCHS,+Karachi&output=embed" title="Map showing Mizaaj Restaurant location on Shahrah-e-Faisal, Karachi" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer>
@@ -874,11 +703,10 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
       <div class="foot-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#signatures">Signatures</a></li>
-          <li><a href="#ambiance">Ambiance</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#visit">Visit Us</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="visit.html">Contact</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -902,196 +730,6 @@ footer{background:var(--dark);color:#cfc8b4;padding:64px 0 30px}
 <script>
 (function(){
   "use strict";
-  var MENU = {
-    "BBQ to Share":[
-      ["Chicken Malai Boti","",1595],
-      ["Chicken Bihari Boti","",1595],
-      ["Chicken Lebanese Boti","",1595],
-      ["Chicken Cheese Boti","",1695],
-      ["Beef Bihari Boti","",1695],
-      ["Makhmali Seekh Kabab","",1495],
-      ["Mizaaj Special Mutton Kabab","",1695],
-      ["Mutton Sizzling Kabab","",2495],
-      ["Lucknowi Sizzling Kabab","",1895],
-      ["Beef Dhaga Kabab","",1595],
-      ["Izmir Kabab","",1495],
-      ["Kafta Kabab","",1495],
-      ["Zirh Kabab","",1495],
-      ["Grilled BBQ Prawns","Succulent prawns char-grilled over coals",1995],
-      ["Balochi Grilled Red Snapper","Seasonal whole fish, Balochi style",4890],
-      ["Grilled BBQ Fish","",3690],
-      ["Chicken Turkish Chops","",1690],
-      ["Mutton Chops","",2945],
-      ["BBQ Mutton Ribs","",5495]
-    ],
-    "Karahi":[
-      ["Karachi Chicken Karahi","",[2395,3395]],
-      ["Karachi Mutton Karahi","",[3295,5200]],
-      ["Shahi Chicken Karahi","",[2395,3395]],
-      ["Shahi Mutton Karahi","",[3295,5200]],
-      ["White Pepper Chicken Karahi","",[2395,3395]],
-      ["White Pepper Mutton Karahi","",[3295,5200]],
-      ["Jhilmil Prawn Karahi","",2890],
-      ["Paneer Karahi","Vegetarian",2450]
-    ],
-    "Handi":[
-      ["Chicken Paneer Reshmi Handi","",2890],
-      ["Chicken Makhni Handi","",2695],
-      ["Royal Kabab Handi","",2890],
-      ["Daal Makhni Handi","Vegetarian",1690],
-      ["Palak Paneer Handi","Vegetarian",1690],
-      ["Naurattan Makni Handi","Vegetarian",1945],
-      ["Shahi Paneer Handi","Vegetarian",2250]
-    ],
-    "Rice & Platters":[
-      ["Chicken Kabsa","Juicy grilled chicken tikka with flavourful rice",2450],
-      ["Mutton Ribs Mandi","Traditional mutton ribs with aromatic rice",5990],
-      ["BBQ Mutton Dasti on Rice","Succulent mutton leg with aromatic rice",5250],
-      ["Chicken Madbee","Charcoal-grilled chicken with renowned Madbee sauce",2450],
-      ["Mutton Madbee","Charcoal-grilled mutton with renowned Madbee sauce",3300],
-      ["Chicken Kafta Kabab Mandi","Juicy kafta kababs with Mandi rice",1900],
-      ["BBQ Kabab Platter","Five signature kababs served with rice",4900],
-      ["Flaming Mix Grill on Rice","Seven grilled specialties on a flame of rice",7500],
-      ["Dawat-e-Mizaaj BBQ Platter","Grand feast for 8 persons",13500],
-      ["Mizaaj-e-Khaas BBQ Platter","The royal table for 10 to 12 persons",19500]
-    ],
-    "Steaks & Grills":[
-      ["Classic Tarragon Chicken","Grilled fillet with rich herby tarragon sauce",2195],
-      ["Wild Mushroom Chicken","Creamy mushroom sauce, topped with wild mushrooms",2195],
-      ["Moroccan Grilled Chicken","Bold, spicy Moroccan sauce",2195],
-      ["Mizaaj Fire Grilled Chicken","Our signature in-house fiery sauce",2195],
-      ["Parmesan Chicken","Golden parmesan crust with rich tomato sauce",2295],
-      ["Tarragon Beef Steak","Grilled fillet with herby tarragon sauce",2995],
-      ["Mushroom Beef Steak","Rich creamy mushroom sauce",2995],
-      ["Moroccan Beef Steak","Bold, spicy Moroccan sauce",2995],
-      ["Mizaaj Fire Steak","Our signature in-house fiery sauce",2995]
-    ],
-    "Chinese":[
-      ["Kung Pao Chicken","Spicy stir-fry with peanuts and fresh vegetables",1695],
-      ["Tokyo Dry Chilli Chicken","Crunchy chicken tossed with bell peppers and chillies",1795],
-      ["Black Pepper Beef","Tender beef with onions, seasoned with cracked pepper",1895],
-      ["Beef Crispy Dry","Crispy strips in a tangy, spicy sauce",1895],
-      ["Firecracker Prawns","Prawns stir-fried with vegetables in a flavourful sauce",1995],
-      ["Schezwan Prawns","Rich and spicy Schezwan pepper gravy",1995],
-      ["Thai Cashew Chicken","Mildly spiced with crunchy cashews",1695],
-      ["Chicken Fried Rice","Wok-tossed with tender chicken",990],
-      ["Prawn Fried Rice","Wok-tossed with succulent prawns",1045],
-      ["Chicken Chow Mein","Signature Chinese sauces, finished with sesame oil",1495]
-    ],
-    "Casuals":[
-      ["Loaded Hummus and Pita","Creamy hummus loaded with olives, warm pita",895],
-      ["Chicken Cigars","Crispy strips stuffed with sun-dried tomatoes and cheese",1395],
-      ["Crusty Chicken Strips","Golden almond-crusted strips",1190],
-      ["Korean Chicken Bites","Tangy bites topped with sesame seeds",1145],
-      ["Flavoured Chicken Wings","Sticky honey-glazed, sesame topped",1190],
-      ["Dynamite Chicken","Crispy chicken in our signature dynamite sauce",1190],
-      ["Dynamite Prawns","Crispy prawns in our signature dynamite sauce",1495],
-      ["Japanese Prawn Tempura","Lightly coated jumbo prawns with soy dip",1650],
-      ["Trio Fries","Golden fries with cheesy, mince and mushroom sauces",1295],
-      ["Fish and Chips","Golden fish, French fries and tartar sauce",1650],
-      ["Cheesy Naan","Freshly baked flatbread stuffed with melted cheese",995]
-    ],
-    "Big Plates":[
-      ["Club Sandwich","Grilled chicken, egg, fresh vegetables, honey mustard",1595],
-      ["Chicken Parm","Parmesan chicken with mozzarella in a brioche bun",1695],
-      ["Grilled Panini Sandwich","Buffalo mozzarella with our homemade sauce",1695],
-      ["Famous Mizaaj Sizzling Burger","Smashed patty on a sizzling pan with cheese sauce",1745],
-      ["Oklahoma Beef Smash Burger","Double smashed patties with caramelized onions",1495],
-      ["Beef Mac and Cheese Burger","Double beef patties with crispy mac and cheese patty",1495],
-      ["Crispy Cluck Burger","Crispy fried chicken patty with coleslaw",1295],
-      ["Fiery Grilled Chicken Burger","Chargrilled patty with mushrooms and onions",1390],
-      ["Alfredo Pasta","Fettuccine in creamy white sauce with grilled chicken",1695],
-      ["Maya's Special Pasta","Parmesan spaghetti in our special red sauce",1795],
-      ["Parmesan Penne Pasta","Creamy penne topped with parmesan-crusted chicken",1695],
-      ["Creamy Mushroom Pasta","Fettuccine in a rich, creamy mushroom sauce",1495]
-    ],
-    "Soups & Salad":[
-      ["Sweet Corn Chicken Soup","Comforting chicken broth with sweet corn",545],
-      ["Hot & Sour Soup","Savoury and tangy broth with chicken and veggies",595],
-      ["Cream of Mushroom Soup","Creamy broth with herbs, served with garlic bread",625],
-      ["Fish Crackers","Crisp and light, a Karachi favourite",350],
-      ["The Great Caesar","Iceberg and mixed greens, grilled chicken, croutons",1395]
-    ],
-    "Tandoor & Sides":[
-      ["Plain Naan","",95],
-      ["Roghni Naan","",195],
-      ["Garlic Naan","",195],
-      ["Qandhari Naan","",395],
-      ["Puri Paratha","",195],
-      ["Chappati","",90],
-      ["Plain Salad","",375],
-      ["Raita","Whipped yogurt with cumin",375],
-      ["Zeera Rice","Cumin-tempered basmati",795]
-    ],
-    "Desserts":[
-      ["Brownie with Ice Cream","",850],
-      ["Three Milk Cake","",1050],
-      ["San Sebastian Cheesecake","",1450],
-      ["Matilda's Chocolate Cake","",1350],
-      ["Mizaaj Special Kunafah","Our signature warm kunafah",1290],
-      ["Famous Qulfi","Served with milk and falooda",450],
-      ["Cookie Dough with Ice Cream","",995],
-      ["Tiramisu","",995],
-      ["Molten Lava Cake","With ice cream, allow 20 minutes",895],
-      ["Ice Cream","Vanilla or chocolate",375]
-    ],
-    "Bar & Coffee":[
-      ["Mint Citrus Lemonade","",595],
-      ["Blueberry Mocktail","",695],
-      ["Strawberry Breeze Daiquiri","",695],
-      ["Passion Fruit Slushie","",695],
-      ["Coco Pina Colada","",695],
-      ["Lychee Twist","",795],
-      ["You & Me Couple Drink","For two, served to share",1450],
-      ["Chocolate Heaven Shake","",690],
-      ["Crazy Kitkat Shake","",995],
-      ["Iced Caramel Macchiato","",650],
-      ["Classic Cold Coffee","",650],
-      ["Americano","",520],
-      ["Cappuccino","Caramel, hazelnut or vanilla",590],
-      ["Cafe Mocha","",660]
-    ]
-  };
-
-  var tabsEl = document.getElementById("menuTabs");
-  var gridEl = document.getElementById("dishGrid");
-  var money = function(n){ return "Rs " + n.toLocaleString("en-US"); };
-
-  function renderDishes(cat){
-    var items = MENU[cat];
-    var html = "";
-    for (var i = 0; i < items.length; i++){
-      var it = items[i];
-      var priceHtml;
-      if (typeof it[2] === "object"){
-        priceHtml = '<span class="dish-price"><small>Half</small>' + money(it[2][0]) + ' <small style="margin:0 .15rem 0 .35rem">Full</small>' + money(it[2][1]) + "</span>";
-      } else {
-        priceHtml = '<span class="dish-price">' + money(it[2]) + "</span>";
-      }
-      html += '<div class="dish"><div class="dish-top"><b>' + it[0] + '</b><span class="dish-leader"></span>' + priceHtml + "</div>" + (it[1] ? "<p>" + it[1] + "</p>" : "") + "</div>";
-    }
-    gridEl.innerHTML = html;
-    var chips = tabsEl.querySelectorAll(".tab");
-    for (var j = 0; j < chips.length; j++){
-      var on = chips[j].getAttribute("data-cat") === cat;
-      chips[j].classList.toggle("active", on);
-      chips[j].setAttribute("aria-selected", on ? "true" : "false");
-    }
-  }
-
-  var cats = Object.keys(MENU);
-  for (var k = 0; k < cats.length; k++){
-    var b = document.createElement("button");
-    b.className = "tab";
-    b.type = "button";
-    b.setAttribute("role","tab");
-    b.setAttribute("data-cat", cats[k]);
-    b.textContent = cats[k];
-    b.addEventListener("click", function(e){ renderDishes(e.currentTarget.getAttribute("data-cat")); });
-    tabsEl.appendChild(b);
-  }
-  renderDishes(cats[0]);
-
   var nav = document.getElementById("nav");
   var burger = document.getElementById("burger");
   burger.addEventListener("click", function(){
